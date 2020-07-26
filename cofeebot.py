@@ -63,16 +63,26 @@ def coffee_bot():
     print('Thanks, {}! Your order will be ready shortly.'.format(name))
     while True:
         order_drink = input("Would you like to order another drink? y/n")
-        if (order_drink == "n"):
+        response = order_drink[0].lower()
+        if (response == "n"):
             print("This is what you have ordered so far: ")
             for drink in drinks:
                 print("-" + drink)
             break
-        elif (order_drink == "y"):
+        elif (response == "y"):
             coffee_bot()
             break
         else:
             print("Please enter the letter ""y"" or the letter ""n"" without any capitals or spaces.")
+    while True:
+        res = input("Would you like to complete your order?")
+        yes_or_no = res[0].lower()
+        if (yes_or_no == "y"):
+            print("Order completed. Thank you for your business!")
+        elif (yes_or_no == "n"):
+            coffee_bot()
+        else:
+            print("I am sorry. I do not understand your response. Please type Yes or No.")
 
 
 #call the bot
