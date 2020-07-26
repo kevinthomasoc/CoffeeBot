@@ -60,14 +60,16 @@ def coffee_bot():
 
     name = input('Can I get your name please? \n> ')
     print('Thanks, {}! Your order will be ready shortly.'.format(name))
-
-    order_drink = input("Would you like to order another drink? y/n")
-    if (order_drink == "n"):
-        print("Thank you for your buisness!")
-    if (order_drink == "y"):
-        coffee_bot()
-    else:
-        print("Please enter the letter ""y"" or the letter ""n"" without any capitals or spaces.")
+    while True:
+        order_drink = input("Would you like to order another drink? y/n")
+        if (order_drink == "n"):
+            print("Thank you for your business!")
+            break
+        elif (order_drink == "y"):
+            coffee_bot()
+            break
+        else:
+            print("Please enter the letter ""y"" or the letter ""n"" without any capitals or spaces.")
 
 
 #call the bot
