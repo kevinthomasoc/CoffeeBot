@@ -4,22 +4,22 @@ def print_message():
 def get_size():
   res = input('What size drink can I get for you? \n[a] Small \n[b] Medium \n[c] Large \n> ')
   if res == 'a':
-      return 'small'
+      return 'Small'
   elif res == 'b':
-      return 'medium'
+      return 'Medium'
   elif res == 'c':
-      return 'large'
+      return 'Large'
   else:
       print_message()
       return get_size()
 def order_latte():
   res = input('And what kind of milk for your latte? \n[a] 2% milk \n[b] Non-fat milk \n[c] Soy milk \n> ')
   if res == 'a':
-      return 'latte'
+      return 'Latte'
   elif res == 'b':
-      return 'non-fat latte'
+      return 'Non-fat Latte'
   elif res == 'c':
-      return 'soy latte'
+      return 'Soy Latte'
   else:
       print_message()
       return order_latte()
@@ -28,7 +28,7 @@ def get_drink_type():
   res = input('What type of drink would you like? \n[a] Brewed Coffee \n[b] Mocha \n[c] Latte \n> ')
 
   if res == 'a':
-    return 'brewed coffee'
+    return 'Brewed Boffee'
   elif res == 'b':
     return order_mocha()
   elif res == 'c':
@@ -47,7 +47,7 @@ def order_mocha():
   print_message()
 
 
-
+drinks = []
 #the actual coffee bot
 def coffee_bot():
     print('Welcome to the cafe!')
@@ -57,13 +57,16 @@ def coffee_bot():
 
     drink = '{} {}'.format(size, drink_type)
     print('Alright, that\'s a {}!'.format(drink))
+    drinks.append(drink)
 
     name = input('Can I get your name please? \n> ')
     print('Thanks, {}! Your order will be ready shortly.'.format(name))
     while True:
         order_drink = input("Would you like to order another drink? y/n")
         if (order_drink == "n"):
-            print("Thank you for your business!")
+            print("This is what you have ordered so far: ")
+            for drink in drinks:
+                print("-" + drink)
             break
         elif (order_drink == "y"):
             coffee_bot()
